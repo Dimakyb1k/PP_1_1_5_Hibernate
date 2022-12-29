@@ -40,9 +40,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        String sql =  "INSERT INTO mydbtest.dimu ("
-                + "name, lastName, age) "
-                + "VALUES (" + "'" + name + "', '" + lastName + "'," + age + ")";
+        String sql =  "INSERT INTO mydbtest.dimu (name, lastName, age)VALUES ('" + name + "', '" + lastName + "'," + age + ")";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.executeUpdate();
         } catch (SQLException e) {

@@ -9,17 +9,24 @@ public class Util {
     private final static String dbURL = "jdbc:mysql://localhost:3306/mydbtest";
     private final static String dbUserName = "root";
     private final static String dbPassword = "root";
+    private static Connection connection = null;
+
     public static Connection getConnection() {
-         Connection connection;
+
         try {
-            connection = DriverManager.getConnection(dbURL,dbUserName,dbPassword);
+            connection = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return connection;
     }
-
-
+    public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

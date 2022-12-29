@@ -18,6 +18,7 @@ public class Main {
         userService.saveUser("Byba", "Bybov", (byte) 19);
         userService.cleanUsersTable();
         userService.dropUsersTable();
+        Util.closeConnection();
 
 
 
